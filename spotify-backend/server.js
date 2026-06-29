@@ -18,7 +18,13 @@ connectDB()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: [
+    "https://sportifyfullstackdeployment.vercel.app/",
+    "https://sportifyfullstackdeployment-ha76.vercel.app/"
+  ],
+  credentials: true
+}));
 
 // Initializing Routers
 app.use("/api/song", songRouter )
